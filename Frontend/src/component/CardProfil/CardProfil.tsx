@@ -1,36 +1,34 @@
-import * as React from 'react';
+// import { useState } from 'react';
 import './CardProfil.css';
-// import {Card, CardActions, CardContent, Button } from '@mui/material';
+
 
 export const CardProfil = (props: any):any => {
-    const { value } = props
-    console.log(value)
+    const { value, checkAll } = props;
+    // const [nbCheck, setNbChecked] = useState<number>(0);
+    console.log(value, checkAll)
     return (
-        // <Card>
-        //     <CardContent>
-        //         ID 
-        //         login
-        //     </CardContent>
-        //     <CardActions>
-        //         <Button variant="contained" >View Profile</Button>
-        //     </CardActions>
-        // </Card>
-        <div id='Card' >
-            {/* <input type='checkbox'
-            className='checkBox' 
-            onClick={() => {
-
-            }} /> */}
-            <div id='CardHeader'>
-                <img className='avatar' alt="avatar" src={value.avatar_url}   />
+        <div id='Card' className='row' >
+            <div className='columnCheck'>
+                <input type='checkbox'
+                className='checkBox' 
+                checked={checkAll}
+                onClick={() => {
+                    
+                }} />
             </div>
-            <div id='CardContent'>
-                <h6>{value.id}</h6>
-                <p>{value.login}</p>
+            <div className='columnInfo'>
+                <div id='CardHeader'>
+                    <img className='avatar' alt="avatar" src={value.avatar_url} />
+                </div>
+                <div id='CardContent'>
+                    <h5>{value.id}</h5>
+                    <h6>{value.login}</h6>
+                </div>
+                <div id='CardAction'>
+                    <button id='ViewProfilBtn'><a href={value.html_url}>View +</a></button>
+                </div>
             </div>
-            <div id='CardAction'>
-                <button id='ViewProfilBtn'>View profile</button>
-            </div>
+            <div className='column'></div>
         </div>
     )
 }

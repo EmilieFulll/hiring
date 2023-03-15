@@ -1,8 +1,14 @@
 import * as React from 'react';
+import './NoFound.css';
 
 export const NoFound = () => {
     return(
-        <h3>NO FOUND :( </h3>
+    
+        <div className='notFoundGif'>
+            <h3> Aucun resultat </h3>
+            <img alt='no found' src={process.env.PUBLIC_URL + 'nofoundPulpFiction.gif'} />
+        </div>
+        
     )
 }
 

@@ -1,20 +1,23 @@
 import * as React from 'react';
-// import Box from '@mui/material/Box';
 import { CardProfil } from "../CardProfil/CardProfil";
 import { NoFound } from '../../page/NoFound';
 
 
 export const ListCard = (props : any): any => {
-    const { items } = props
+    const { items, checkAll, search } = props
     if (items?.length > 0) {
-        console.log(items)
         return items.map((card: Object) => {
             return <div className='column'>
-                <CardProfil value={card} key={card.toString()} />
+                <CardProfil 
+                    value={card} 
+                    key={card.toString()} 
+                    checkAll={checkAll}
+                />
             </div>
         })       
-    } else {
+    } else if (search !== "" && items?.length === 0) {
         return <NoFound/>
+    } else {
+        return 'Liste des Users'
     }
-   
 }
